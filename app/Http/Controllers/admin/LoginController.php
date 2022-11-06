@@ -38,8 +38,9 @@ class LoginController extends Controller
         $this->middleware('guest:admin')->except('logout');
     }
 
+    // Override Method
     public function showLoginForm(){
-        return view('admin.login');
+        return view('admin-auth.admin-login');
     }
 
      /**
