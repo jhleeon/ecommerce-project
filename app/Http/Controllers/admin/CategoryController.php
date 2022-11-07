@@ -65,9 +65,6 @@ class CategoryController extends Controller
             'status' => 1,
         ]);
         return redirect()->route('category.index');
-    }
-
-
-
+    } 
 
 }

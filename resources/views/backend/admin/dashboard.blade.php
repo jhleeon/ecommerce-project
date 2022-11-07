@@ -1,7 +1,7 @@
 @extends('layouts.backend.admin-master')
 
+@section('dashboard-active') active @endsection
 @section('content')
-
     <!-- ########## START: MAIN PANEL ########## -->
     <div class="sl-mainpanel">
         <nav class="breadcrumb sl-breadcrumb">

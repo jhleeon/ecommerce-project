@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\AdminController;
@@ -43,3 +44,12 @@ Route::put('admin/categories/update/{cat_id}', [CategoryController::class, 'upda
 Route::get('admin/categories/delete/{cat_id}', [CategoryController::class, 'delete'])->name('category.delete');
 Route::get('admin/categories/inactive/{cat_id}', [CategoryController::class, 'inactive'])->name('category.inactive');
 Route::get('admin/categories/active/{cat_id}', [CategoryController::class, 'active'])->name('category.active');
+
+//brand
+Route::get('admin/brands', [BrandController::class, 'index'])->name('brand.index');
+Route::post('admin/brands', [BrandController::class, 'store'])->name('brand.store');
+Route::get('admin/brands/edit/{brand_id}', [BrandController::class, 'edit'])->name('brand.edit');
+Route::put('admin/brands/update/{brand_id}', [BrandController::class, 'update'])->name('brand.update');
+Route::get('admin/brands/delete/{brand_id}', [BrandController::class, 'delete'])->name('brand.delete');
+Route::get('admin/brands/inactive/{brand_id}', [BrandController::class, 'inactive'])->name('brand.inactive');
+Route::get('admin/brands/active/{brand_id}', [BrandController::class, 'active'])->name('brand.active');

@@ -1,13 +1,13 @@
 @extends('layouts.backend.admin-master')
-@section('categories-active')
+@section('brand-active')
     active
 @endsection
 
 @section('content')
     <div class="sl-mainpanel">
         <nav class="breadcrumb sl-breadcrumb">
-            <a class="breadcrumb-item" href="index.html">Dashboard</a>
-            <span class="breadcrumb-item active">Dashboard</span>
+            <a class="breadcrumb-item" href="{{ route('admin.home') }}">Dashboard</a>
+            <span class="breadcrumb-item active">Brand</span>
         </nav>
 
         <div class="sl-pagebody">
@@ -23,34 +23,34 @@
                         </div>
                     @endif
                     <div class="card pd-20 pd-sm-40">
-                        <h6 class="card-body-title text-center">Category List</h6>
+                        <h6 class="card-body-title text-center">Brand List</h6>
                         <div class="table-wrapper">
                             <table id="datatable1" class="table table display responsive nowrap">
                                 <thead>
                                     <tr>
                                         <th class="wd-15p">Serial</th>
-                                        <th class="wd-15p">Category Name</th>
+                                        <th class="wd-15p">Brand Name</th>
                                         <th class="wd-20p">Status</th>
                                         <th class="wd-20p">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  @foreach ($categories as $category)
+                                  @foreach ($brands as $brand )
                                   <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{ $category->category_name }}</td>
-                                    <td> @if ($category->status == 1)
+                                    <td>{{ $brand->brand_name }}</td>
+                                    <td> @if ($brand->status == 1)
                                       <span class="badge badge-success">Active</span>
                                       @else
                                       <span class="badge badge-danger">Inactive</span>
                                     @endif</td>
                                     <td>
-                                      <a href="{{ route('category.edit',$category->id) }}" class="btn btn-info btn-sm me-1">Edit</a>
-                                      <a href="{{ route('category.delete',$category->id) }}" class="btn btn-danger btn-sm">Delete</a>
-                                      @if ($category->status == 1)
-                                      <a href="{{ route('category.inactive',$category->id) }}" class="btn btn-danger rounded-circle btn-sm">Inactive</a>
+                                      <a href="{{ route('brand.edit',$brand->id) }}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                                      <a href="{{ route('brand.delete',$brand->id) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                      @if ($brand->status == 1)
+                                      <a href="{{ route('brand.inactive',$brand->id) }}" class="btn btn-danger"><i class="fa fa-arrow-circle-down"></i></a>
                                       @else
-                                      <a href="{{ route('category.active',$category->id) }}" class="btn btn-success rounded-circle btn-sm">Active</a>
+                                      <a href="{{ route('brand.active',$brand->id) }}" class="btn btn-success"><i class="fa fa-arrow-circle-up"></i></a>
                                       @endif
                                     </td>
                                 </tr>
@@ -74,16 +74,16 @@
                                     </button>
                                 </div>
                             @endif
-                            <h6 class="card-title text-center">Add Category</h6>
-                            <form action="{{ route('category.store') }}" method="Post">
+                            <h6 class="card-title text-center">Add Brand</h6>
+                            <form action="{{ route('brand.store') }}" method="Post">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="" class="form-input">Category-</label>
-                                    <input type="text" name="category_name"
-                                        class="form-control @error('category_name') is-invalid @enderror" id="category_name"
-                                        placeholder="Enter Category">
+                                    <label for="" class="form-input">Brand-</label>
+                                    <input type="text" name="brand_name"
+                                        class="form-control @error('brand_name') is-invalid @enderror" id="brand_name"
+                                        placeholder="Enter Brand">
                                 </div>
-                                @error('category_name')
+                                @error('brand_name')
                                     <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                                 <div>
