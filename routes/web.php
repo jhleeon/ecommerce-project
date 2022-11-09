@@ -2,25 +2,14 @@
 
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CuponController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontEndController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 // ==========Frontend Route==============
 Route::get('/',[FrontEndController::class,'index'])->name('index');
@@ -30,13 +19,15 @@ Auth::routes();
 
 // ===============Backend Route===================
 
-// Admin Auth
+// Admin Dashboard/Home Page
 Route::get('/admin/home', [AdminController::class, 'dashboard'])->name('admin.home');
+
+// Admin Auth
 Route::get('/admin/login', [LoginController::class,'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [LoginController::class,'login']);
 Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin.logout');
 
-// Category
+// Admin Category
 Route::get('admin/categories', [CategoryController::class, 'index'])->name('category.index');
 Route::post('admin/categories', [CategoryController::class, 'store'])->name('category.store');
 Route::get('admin/categories/edit/{cat_id}', [CategoryController::class, 'edit'])->name('category.edit');
@@ -45,7 +36,7 @@ Route::get('admin/categories/delete/{cat_id}', [CategoryController::class, 'dele
 Route::get('admin/categories/inactive/{cat_id}', [CategoryController::class, 'inactive'])->name('category.inactive');
 Route::get('admin/categories/active/{cat_id}', [CategoryController::class, 'active'])->name('category.active');
 
-//brand
+//Admin brand
 Route::get('admin/brands', [BrandController::class, 'index'])->name('brand.index');
 Route::post('admin/brands', [BrandController::class, 'store'])->name('brand.store');
 Route::get('admin/brands/edit/{brand_id}', [BrandController::class, 'edit'])->name('brand.edit');
@@ -53,3 +44,23 @@ Route::put('admin/brands/update/{brand_id}', [BrandController::class, 'update'])
 Route::get('admin/brands/delete/{brand_id}', [BrandController::class, 'delete'])->name('brand.delete');
 Route::get('admin/brands/inactive/{brand_id}', [BrandController::class, 'inactive'])->name('brand.inactive');
 Route::get('admin/brands/active/{brand_id}', [BrandController::class, 'active'])->name('brand.active');
+
+// Admin Product
+Route::get('admin/products/create', [ProductController::class, 'create'])->name('product.create');
+Route::post('admin/products/store', [ProductController::class, 'store'])->name('product.store');
+Route::get('admin/products/manage', [ProductController::class, 'manage'])->name('product.manage');
+Route::get('admin/products/edit/{product_id}', [ProductController::class, 'edit'])->name('product.edit');
+Route::put('admin/products/update/{product_id}', [ProductController::class, 'update'])->name('product.update');
+Route::get('admin/products/delete/{product_id}', [ProductController::class, 'delete'])->name('product.delete');
+Route::get('admin/products/inactive/{product_id}', [ProductController::class, 'inactive'])->name('product.inactive');
+Route::get('admin/products/active/{product_id}', [ProductController::class, 'active'])->name('product.active');
+
+// Admin Cupon
+
+Route::get('admin/cupons/index', [CuponController::class, 'index'])->name('cupon.index');
+Route::post('admin/cupons/store', [CuponController::class, 'store'])->name('cupon.store');
+Route::get('admin/cupons/edit/{cupon_id}', [CuponController::class, 'edit'])->name('cupon.edit');
+Route::put('admin/cupons/update/{cupon_id}', [CuponController::class, 'update'])->name('cupon.update');
+Route::get('admin/cupons/delete/{cupon_id}', [CuponController::class, 'delete'])->name('cupon.delete');
+Route::get('admin/cupons/inactive/{cupon_id}', [CuponController::class, 'inactive'])->name('cupon.inactive');
+Route::get('admin/cupons/active/{cupon_id}', [CuponController::class, 'active'])->name('cupon.active');

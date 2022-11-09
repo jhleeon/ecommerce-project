@@ -1,5 +1,5 @@
 @extends('layouts.backend.admin-master')
-@section('brands-active')
+@section('cupons-active')
     active
 @endsection
 
@@ -7,7 +7,7 @@
     <div class="sl-mainpanel">
         <nav class="breadcrumb sl-breadcrumb">
             <a class="breadcrumb-item" href="{{ route('admin.home') }}">Dashboard</a>
-            <span class="breadcrumb-item active">Brand</span>
+            <span class="breadcrumb-item active">Cupon</span>
         </nav>
 
         <div class="sl-pagebody">
@@ -29,28 +29,28 @@
                                 <thead>
                                     <tr>
                                         <th class="wd-15p">Serial</th>
-                                        <th class="wd-15p">Brand Name</th>
+                                        <th class="wd-15p">Cupon Name</th>
                                         <th class="wd-20p">Status</th>
                                         <th class="wd-20p">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  @foreach ($brands as $brand )
+                                  @foreach ($cupons as $cupon )
                                   <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{ $brand->brand_name }}</td>
-                                    <td> @if ($brand->status == 1)
+                                    <td>{{ $cupon->cupon_name }}</td>
+                                    <td> @if ($cupon->status == 1)
                                       <span class="badge badge-success">Active</span>
                                       @else
                                       <span class="badge badge-danger">Inactive</span>
                                     @endif</td>
                                     <td>
-                                      <a href="{{ route('brand.edit',$brand->id) }}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-                                      <a href="{{ route('brand.delete',$brand->id) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                      @if ($brand->status == 1)
-                                      <a href="{{ route('brand.inactive',$brand->id) }}" class="btn btn-danger"><i class="fa fa-arrow-circle-down"></i></a>
+                                      <a href="{{ route('cupon.edit',$cupon->id) }}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                                      <a href="{{ route('cupon.delete',$cupon->id) }}" class="btn btn-danger" onclick="return confirm('Are You Want To Delete')"><i class="fa fa-trash"></i></a>
+                                      @if ($cupon->status == 1)
+                                      <a href="{{ route('cupon.inactive',$cupon->id) }}" class="btn btn-danger"><i class="fa fa-arrow-circle-down"></i></a>
                                       @else
-                                      <a href="{{ route('brand.active',$brand->id) }}" class="btn btn-success"><i class="fa fa-arrow-circle-up"></i></a>
+                                      <a href="{{ route('cupon.active',$cupon->id) }}" class="btn btn-success"><i class="fa fa-arrow-circle-up"></i></a>
                                       @endif
                                     </td>
                                 </tr>
@@ -66,24 +66,22 @@
                     <div class="card w-100">
                         <div class="card-body">
 
-                            @if (session('success'))
+                            @if (session('cupon-success'))
                                 <div class="alert alert-success alert-dismissible" role="alert">
-                                    <strong>{{ session('success') }}</strong>
+                                    <strong>{{ session('cupon-success') }}</strong>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                             @endif
-                            <h6 class="card-title text-center">Add Brand</h6>
-                            <form action="{{ route('brand.store') }}" method="Post">
+                            <h6 class="card-title text-center">Add Cupon</h6>
+                            <form action="{{ route('cupon.store') }}" method="Post">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="" class="form-input">Brand-</label>
-                                    <input type="text" name="brand_name"
-                                        class="form-control @error('brand_name') is-invalid @enderror" id="brand_name"
-                                        placeholder="Enter Brand">
+                                    <label for="" class="form-input">Cupon-</label>
+                                    <input type="text" name="cupon_name" class="form-control" id="cupon_name" placeholder="Enter Cupon">
                                 </div>
-                                @error('brand_name')
+                                @error('cupon_name')
                                     <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                                 <div>

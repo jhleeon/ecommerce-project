@@ -41,6 +41,11 @@
     <link href="{{ asset('backend') }}/lib/datatables/jquery.dataTables.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/lib/select2/css/select2.min.css" rel="stylesheet">
 
+    {{-- summer Note --}}
+    <link href="{{ asset('backend') }}/lib/medium-editor/medium-editor.css" rel="stylesheet">
+    <link href="{{ asset('backend') }}/lib/medium-editor/default.css" rel="stylesheet">
+    <link href="{{ asset('backend') }}/lib/summernote/summernote-bs4.css" rel="stylesheet">
+
 
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{ asset('backend') }}/css/starlight.css">
@@ -91,19 +96,27 @@
                     </div><!-- menu-item -->
                 </a><!-- sl-menu-link -->
             
-                <a href="#" class="sl-menu-link">
+
+                <a href="#" class="sl-menu-link @yield('products-active')">
                     <div class="sl-menu-item">
                         <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
-                        <span class="menu-item-label">Charts</span>
+                        <span class="menu-item-label">Products</span>
                         <i class="menu-item-arrow fa fa-angle-down"></i>
                     </div><!-- menu-item -->
                 </a><!-- sl-menu-link -->
                 <ul class="sl-menu-sub nav flex-column">
-                    <li class="nav-item"><a href="chart-morris.html" class="nav-link">Index</a></li>
-                    <li class="nav-item"><a href="chart-flot.html" class="nav-link">Flot Charts</a></li>
-                    <li class="nav-item"><a href="chart-chartjs.html" class="nav-link">Chart JS</a></li>
-                   
+                    <li class="nav-item "><a href="{{ route('product.create') }}" class="nav-link @yield('add-products-active')">Add Product</a></li>
+                    <li class="nav-item"><a href="{{ route('product.manage') }}" class="nav-link @yield('manage-products-active')">Manage Product</a></li>
+    
                 </ul>
+                
+                <a href="{{ route('cupon.index') }}" class="sl-menu-link @yield('cuponss-active')" >
+                    <div class="sl-menu-item">
+                        <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+                        <span class="menu-item-label">Cupon</span>
+                    </div><!-- menu-item -->
+                </a><!-- sl-menu-link -->
+               
                 <a href="#" class="sl-menu-link">
                     <div class="sl-menu-item">
                         <i class="menu-item-icon icon ion-ios-gear-outline tx-24"></i>
@@ -417,6 +430,7 @@
     <script src="{{ asset('backend') }}/lib/popper.js/popper.js"></script>
     <script src="{{ asset('backend') }}/lib/bootstrap/bootstrap.js"></script>
     <script src="{{ asset('backend') }}/lib/jquery-ui/jquery-ui.js"></script>
+    {{-- Data Table & select 2 --}}
     <script src="{{ asset('backend') }}/lib/datatables/jquery.dataTables.js"></script>
     <script src="{{ asset('backend') }}/lib/datatables-responsive/dataTables.responsive.js"></script>
     <script>
@@ -430,15 +444,43 @@
                     sSearch: '',
                     lengthMenu: '_MENU_ items/page',
                 }
+                
             });
-
-            // Select2
+            
             $('.dataTables_length select').select2({
                 minimumResultsForSearch: Infinity
             });
 
         });
     </script>
+
+{{-- summer note --}}
+<script src="{{ asset('backend') }}/lib/medium-editor/medium-editor.js"></script>
+<script src="{{ asset('backend') }}/lib/summernote/summernote-bs4.min.js"></script>
+<script>
+  $(function(){
+    'use strict';
+
+    // Inline editor
+    var editor = new MediumEditor('.editable');
+
+    // Summernote editor
+    $('#summernote').summernote({
+      height: 150,
+      tooltip: false
+    })
+
+        // Summernote editor
+    $('#summernote2').summernote({
+      height: 150,
+      tooltip: false
+    })
+
+  });
+</script>
+
+
+
     <script src="{{ asset('backend') }}/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
     <script src="{{ asset('backend') }}/lib/jquery.sparkline.bower/jquery.sparkline.min.js"></script>
     <script src="{{ asset('backend') }}/lib/d3/d3.js"></script>
