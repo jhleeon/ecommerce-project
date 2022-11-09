@@ -153,11 +153,18 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="header__cart">
+                        @php
+                            $totalPrice = App\Models\Cart::all()->where('user_ip',request()->ip())->sum(function($var){
+                                return $var->price * $var->qty;
+                            });
+
+                            $totalQty = App\Models\Cart::where('user_ip',request()->ip())->sum('qty');
+                        @endphp
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>{{ $totalQty }}</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        <div class="header__cart__price">item: <span>{{ $totalPrice}}</span></div>
                     </div>
                 </div>
             </div>

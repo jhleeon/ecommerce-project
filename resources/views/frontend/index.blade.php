@@ -63,7 +63,10 @@
                                     <ul class="featured__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <form action="{{ route('add-to-cart', $product->id) }}" method="post">
+                                            @csrf
+                                            <li><button type="submit"><i class="fa fa-shopping-cart"></button></i></li>
+                                        </form>
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">

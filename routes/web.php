@@ -6,16 +6,23 @@ use App\Http\Controllers\Admin\CuponController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\FrontEndController;
 use Illuminate\Support\Facades\Route;
 
 
+Auth::routes();
 
 // ==========Frontend Route==============
+
+// front end index/home page
 Route::get('/',[FrontEndController::class,'index'])->name('index');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// Cart Controller
+Route::post('/add-to-carts/{product_id}',[CartController::class,'addToCart'])->name('add-to-cart');
+
+
 
 // ===============Backend Route===================
 
@@ -56,7 +63,6 @@ Route::get('admin/products/inactive/{product_id}', [ProductController::class, 'i
 Route::get('admin/products/active/{product_id}', [ProductController::class, 'active'])->name('product.active');
 
 // Admin Cupon
-
 Route::get('admin/cupons/index', [CuponController::class, 'index'])->name('cupon.index');
 Route::post('admin/cupons/store', [CuponController::class, 'store'])->name('cupon.store');
 Route::get('admin/cupons/edit/{cupon_id}', [CuponController::class, 'edit'])->name('cupon.edit');
@@ -64,3 +70,6 @@ Route::put('admin/cupons/update/{cupon_id}', [CuponController::class, 'update'])
 Route::get('admin/cupons/delete/{cupon_id}', [CuponController::class, 'delete'])->name('cupon.delete');
 Route::get('admin/cupons/inactive/{cupon_id}', [CuponController::class, 'inactive'])->name('cupon.inactive');
 Route::get('admin/cupons/active/{cupon_id}', [CuponController::class, 'active'])->name('cupon.active');
+
+
+
