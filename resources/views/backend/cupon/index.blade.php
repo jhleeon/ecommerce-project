@@ -22,6 +22,7 @@
                             </button>
                         </div>
                     @endif
+                    
                     <div class="card pd-20 pd-sm-40">
                         <h6 class="card-body-title text-center">Brand List</h6>
                         <div class="table-wrapper">
@@ -30,6 +31,7 @@
                                     <tr>
                                         <th class="wd-15p">Serial</th>
                                         <th class="wd-15p">Cupon Name</th>
+                                        <th class="wd-20p">Cupon Discount</th>
                                         <th class="wd-20p">Status</th>
                                         <th class="wd-20p">Action</th>
                                     </tr>
@@ -39,6 +41,7 @@
                                   <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{ $cupon->cupon_name }}</td>
+                                    <td>{{ $cupon->cupon_discount ? "$cupon->cupon_discount %" :" " }}</td>
                                     <td> @if ($cupon->status == 1)
                                       <span class="badge badge-success">Active</span>
                                       @else
@@ -78,13 +81,23 @@
                             <form action="{{ route('cupon.store') }}" method="Post">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="" class="form-input">Cupon-</label>
+                                    <label for="" class="form-input">Cupon Name</label>
                                     <input type="text" name="cupon_name" class="form-control" id="cupon_name" placeholder="Enter Cupon">
                                 </div>
                                 @error('cupon_name')
                                     <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                                 <div>
+                                
+                                <div class="mb-3">
+                                    <label for="cupon_discount" class="form-input">Cupon Discount</label>
+                                    <input type="text" name="cupon_discount" class="form-control" id="cupon_discount" placeholder="Enter Cupon Discount in %">
+                                </div>
+                                @error('cupon_discount')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                                <div>
+
                                     <input type="submit" value="Add" name="submit" class="btn btn-success">
                                 </div>
                             </form>

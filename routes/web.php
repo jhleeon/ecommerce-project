@@ -17,10 +17,15 @@ Auth::routes();
 
 // front end index/home page
 Route::get('/',[FrontEndController::class,'index'])->name('index');
+
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Cart Controller
 Route::post('/add-to-carts/{product_id}',[CartController::class,'addToCart'])->name('add-to-cart');
+Route::get('/carts',[CartController::class,'CartPage'])->name('cart');
+Route::put('/carts/update/{cart_id}',[CartController::class,'cartUpdate'])->name('cartUpdate');
+Route::get('/carts/delete/{cart_id}',[CartController::class,'cartDelete'])->name('cartDelete');
+Route::post('/carts/cupon',[CartController::class,'cupon'])->name('cupon');
 
 
 

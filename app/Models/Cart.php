@@ -14,4 +14,8 @@ class Cart extends Model
             'qty',
             'user_ip'
     ];
+
+    public function product(){
+        return $this->belongsTo(Product::class);
+    }
 }

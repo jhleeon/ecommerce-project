@@ -28,6 +28,7 @@ class CuponController extends Controller
  
          Cupon::insert([
              'cupon_name'=>strtoupper($request->cupon_name),
+             'cupon_discount'=>$request->cupon_discount,
              'created_at'=>Carbon::now(),
              
          ]);
@@ -44,6 +45,7 @@ class CuponController extends Controller
     
         Cupon::find($cupon_id)->update([
             'cupon_name' => strtoupper($request->cupon_name),
+            'cupon_discount'=>$request->cupon_discount,
             'updated_at' =>Carbon::now(),
         ]);
             return redirect()->route('cupon.index')->with('success', 'Cupon Edited Successfully'); 
