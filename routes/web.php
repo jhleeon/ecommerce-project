@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FrontEndController;
+use App\Http\Controllers\WhislistController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,10 +16,13 @@ Auth::routes();
 
 // ==========Frontend Route==============
 
+
 // front end index/home page
 Route::get('/',[FrontEndController::class,'index'])->name('index');
+Route::get('/wishlists/{product_id}',[WhislistController::class,'addWishlist'])->name('addWishlist');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 // Cart Controller
 Route::post('/add-to-carts/{product_id}',[CartController::class,'addToCart'])->name('add-to-cart');

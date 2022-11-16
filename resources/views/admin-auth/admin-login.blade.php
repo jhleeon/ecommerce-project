@@ -7,7 +7,7 @@
                 <a class="breadcrumb-item" href="index.html">Register</a>
                 <span class="breadcrumb-item active">Login</span>
             </nav>
-        @endguest
+    @endguest
 
         <div class="d-flex align-items-center justify-content-center bg-sl-primary ht-100v">
 
