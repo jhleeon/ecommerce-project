@@ -14,4 +14,12 @@ class FrontEndController extends Controller
         $product_limits = Product::where('status',1)->latest()->limit(3)->get();
         return view('frontend.index', compact('categories','products','product_limits'));
     }
+
+    public function productDetails($product_id){
+
+        $categories = Category::where('status',1)->latest()->get();
+        $product = Product::findOrFail($product_id);
+        return view('frontend.product-details',compact('categories','product') );
+        
+    }
 }

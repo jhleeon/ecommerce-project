@@ -53,12 +53,12 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                @guest
+                @auth
+                    <a href="{{ route('home') }}"><i class="fa fa-user"></i>{{ Auth::user()->name }}</a>
+                @else
                     <a href="{{ route('login') }}"><i class="fa fa-user"></i> Login</a>
                     <a href="{{ route('register') }}"><i class="fa fa-user"></i> Register</a>
-                @else
-                    <a href="#"><i class="fa fa-user"></i>{{ Auth::user()->name }}</a>
-                @endguest
+                @endauth
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -124,12 +124,12 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth d-inline-flex">
-                                @guest
-                                    <a href="{{ route('login') }}"><i class="fa fa-user"></i> Login |</a>
-                                    <a href="{{ route('register') }}"><i class="fa fa-user"></i> Register</a>
+                                @auth
+                                    <a href="{{ route('home') }}"><i class="fa fa-user"></i>{{ Auth::user()->name }}</a>
                                 @else
-                                    <a href="#"><i class="fa fa-user"></i>{{ Auth::user()->name }}</a>
-                                @endguest
+                                    <a href="{{ route('login') }}"><i class="fa fa-user"></i> Login</a>
+                                    <a href="{{ route('register') }}"><i class="fa fa-user"></i> Register</a>
+                                @endauth
                             </div>
                         </div>
                     </div>
@@ -171,10 +171,10 @@
                                     return $var->price * $var->qty;
                                 });
                             $totalQty = App\Models\Cart::where('user_ip', request()->ip())->sum('qty');
-                            
+                            $totalWishQty = App\Models\Whislist::where('user_id',Auth::id())->get();
                         @endphp
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="{{ route('wishlistpage')}}"><i class="fa fa-heart"></i> <span>{{ count($totalWishQty) }}</span></a></li>
                             <li><a href="{{ route('cart') }}"><i class="fa fa-shopping-bag"></i>
                                     <span>{{ $totalQty }}</span></a></li>
                         </ul>

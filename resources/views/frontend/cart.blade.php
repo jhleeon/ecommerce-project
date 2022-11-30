@@ -166,7 +166,7 @@
                             
                         @else
                         <li>Subtotal <span>{{ $subtotal }}</span></li>
-                        <li>Total <span>$454.98</span></li>
+                        <li>Total <span>{{ $subtotal }}</span></li>
                         @endif
                        
                     </ul>

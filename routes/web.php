@@ -16,12 +16,21 @@ Auth::routes();
 
 // ==========Frontend Route==============
 
-
-// front end index/home page
-Route::get('/',[FrontEndController::class,'index'])->name('index');
-Route::get('/wishlists/{product_id}',[WhislistController::class,'addWishlist'])->name('addWishlist');
+//After Login Home Page
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//Index page
+Route::get('/',[FrontEndController::class,'index'])->name('index');
+
+
+//product details page
+Route::get('/product-details/{product_id}',[FrontEndController::class,'productDetails'])->name('productdetails');
+
+
+//wishlist controller
+Route::get('/wishlists/{product_id}',[WhislistController::class,'addWishlist'])->name('addWishlist');
+Route::get('/wishlists',[WhislistController::class,'WishlistPage'])->name('wishlistpage');
+Route::get('/wishlist/delete/{wishlist_id}',[WhislistController::class,'deletewishlist'])->name('wishlistdelete');
 
 
 // Cart Controller

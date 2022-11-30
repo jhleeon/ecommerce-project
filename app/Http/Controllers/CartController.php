@@ -20,7 +20,7 @@ class CartController extends Controller
         if($check){
 
             Cart::where('product_id',$product_id)->increment('qty');
-            return redirect()->back();
+            return redirect()->back()->with('message',"Product added to cart Successfully");
         }
         else{
             Cart::insert([
@@ -30,7 +30,7 @@ class CartController extends Controller
                 'user_ip' =>$request->ip(),
                 'created_at' =>Carbon::now(),
             ]);
-            return redirect()->back();
+            return redirect()->back()->with('message',"Product added to cart Successfully");
         }
         
     }
@@ -58,6 +58,9 @@ class CartController extends Controller
         $cartItem->delete();
         return redirect()->back()->with('success',"Cart Item Remove Successfully");
     }
+
+
+    
 
     public function cupon(Request $request){
       $cupon =  Cupon::where('cupon_name',$request->cupon_name)->first();
