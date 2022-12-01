@@ -75,4 +75,12 @@ class CartController extends Controller
            return redirect()->back()->with('success',"Invalid Cupon");
         }
     }
+
+
+    public function cuponremove(){
+        if (session::has('cupon')){
+            session()->forget('cupon');
+            return redirect()->back()->with('success','Cupon Removed Successfully');
+        }
+    }
 }

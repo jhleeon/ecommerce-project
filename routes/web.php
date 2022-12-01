@@ -39,6 +39,7 @@ Route::get('/carts',[CartController::class,'CartPage'])->name('cart');
 Route::put('/carts/update/{cart_id}',[CartController::class,'cartUpdate'])->name('cartUpdate');
 Route::get('/carts/delete/{cart_id}',[CartController::class,'cartDelete'])->name('cartDelete');
 Route::post('/carts/cupon',[CartController::class,'cupon'])->name('cupon');
+Route::get('/carts/cupon/remove',[CartController::class,'cuponremove'])->name('cuponremove');
 
 
 
