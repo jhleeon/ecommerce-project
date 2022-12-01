@@ -7,7 +7,9 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FrontEndController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\WhislistController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +42,15 @@ Route::put('/carts/update/{cart_id}',[CartController::class,'cartUpdate'])->name
 Route::get('/carts/delete/{cart_id}',[CartController::class,'cartDelete'])->name('cartDelete');
 Route::post('/carts/cupon',[CartController::class,'cupon'])->name('cupon');
 Route::get('/carts/cupon/remove',[CartController::class,'cuponremove'])->name('cuponremove');
+
+
+//checkout controller
+Route::get('/checkout',[CheckoutController::class,'checkout'])->name('checkout');
+
+//order controller
+Route::post('/place-order',[OrderController::class,'placeOrder'])->name('placeorder');
+Route::get('/place-order/success',[OrderController::class,'orderSuccess'])->name('ordersuccess');
+
 
 
 

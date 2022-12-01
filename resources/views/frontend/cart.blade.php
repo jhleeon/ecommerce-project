@@ -162,7 +162,10 @@
                         <ul>
                             @if (Session::has('cupon'))
                                 <li>Subtotal <span>{{ $subtotal }}</span></li>
-                                <li>Cuppon <span>{{ session()->get('cupon')['cupon_name'] }} <a href="{{ route('cuponremove') }}" class="badge badge-dark"> Remove </a></span></li>
+                                <li>Cuppon <span>{{ session()->get('cupon')['cupon_name'] }} 
+                                    <a href="{{ route('cuponremove') }}" class="badge badge-dark"> Remove </a></span>
+                                </li>
+                                
                                 <li>Discount
                                     <span>{{ $discount = ($subtotal * session()->get('cupon')['cupon_discount']) / 100 }}</span>
                                 </li>
@@ -173,7 +176,7 @@
                             @endif
 
                         </ul>
-                        <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+                        <a href="{{ route('checkout') }}" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>
             </div>

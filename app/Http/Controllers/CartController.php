@@ -13,12 +13,9 @@ use Illuminate\Support\Facades\Session;
 class CartController extends Controller
 {
     public function addToCart(Request $request, $product_id){
-        
         $product = Product::find($product_id);
- 
         $check = Cart::where('product_id',$product_id)->where('user_ip',$request->ip())->first();
         if($check){
-
             Cart::where('product_id',$product_id)->increment('qty');
             return redirect()->back()->with('message',"Product added to cart Successfully");
         }
@@ -32,7 +29,6 @@ class CartController extends Controller
             ]);
             return redirect()->back()->with('message',"Product added to cart Successfully");
         }
-        
     }
 
     public function cartPage(){
