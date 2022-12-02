@@ -9,11 +9,9 @@
             <a class="breadcrumb-item" href="{{ route('admin.home') }}">Dashboard</a>
             <span class="breadcrumb-item active">Brand</span>
         </nav>
-
         <div class="sl-pagebody">
             <div class="row">
                 <div class="col-7">
-
                     @if (session('success'))
                         <div class="alert alert-success alert-dismissible" role="alert">
                             <strong>{{ session('success') }}</strong>
@@ -35,32 +33,37 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  @foreach ($brands as $brand )
-                                  <tr>
-                                    <td>{{$loop->iteration}}</td>
-                                    <td>{{ $brand->brand_name }}</td>
-                                    <td> @if ($brand->status == 1)
-                                      <span class="badge badge-success">Active</span>
-                                      @else
-                                      <span class="badge badge-danger">Inactive</span>
-                                    @endif</td>
-                                    <td>
-                                      <a href="{{ route('brand.edit',$brand->id) }}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-                                      <a href="{{ route('brand.delete',$brand->id) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                      @if ($brand->status == 1)
-                                      <a href="{{ route('brand.inactive',$brand->id) }}" class="btn btn-danger"><i class="fa fa-arrow-circle-down"></i></a>
-                                      @else
-                                      <a href="{{ route('brand.active',$brand->id) }}" class="btn btn-success"><i class="fa fa-arrow-circle-up"></i></a>
-                                      @endif
-                                    </td>
-                                </tr>
-                                  @endforeach
+                                    @foreach ($brands as $brand)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $brand->brand_name }}</td>
+                                            <td>
+                                                @if ($brand->status == 1)
+                                                    <span class="badge badge-success">Active</span>
+                                                @else
+                                                    <span class="badge badge-danger">Inactive</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('brand.edit', $brand->id) }}" class="btn btn-success"><i
+                                                        class="fa fa-pencil"></i></a>
+                                                <a href="{{ route('brand.delete', $brand->id) }}" class="btn btn-danger"><i
+                                                        class="fa fa-trash"></i></a>
+                                                @if ($brand->status == 1)
+                                                    <a href="{{ route('brand.inactive', $brand->id) }}"
+                                                        class="btn btn-danger"><i class="fa fa-arrow-circle-down"></i></a>
+                                                @else
+                                                    <a href="{{ route('brand.active', $brand->id) }}"
+                                                        class="btn btn-success"><i class="fa fa-arrow-circle-up"></i></a>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div><!-- table-wrapper -->
                     </div><!-- card -->
                 </div>
-
 
                 <div class="col-5">
                     <div class="card w-100">
@@ -94,4 +97,6 @@
                     </div>
                 </div>
             </div><!-- row -->
-        @endsection
+        </div>
+    </div>
+@endsection

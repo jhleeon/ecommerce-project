@@ -54,6 +54,7 @@
 <body>
 
     @guest
+    
     @else
         <!-- ########## START: LEFT PANEL ########## -->
         <div class="sl-logo"><a href=""><i class="icon ion-android-star-outline"></i> starlight</a></div>
@@ -110,10 +111,17 @@
     
                 </ul>
                 
-                <a href="{{ route('cupon.index') }}" class="sl-menu-link @yield('cuponss-active')" >
+                <a href="{{ route('cupon.index') }}" class="sl-menu-link @yield('cupons-active')" >
                     <div class="sl-menu-item">
                         <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
                         <span class="menu-item-label">Cupon</span>
+                    </div><!-- menu-item -->
+                </a><!-- sl-menu-link -->
+
+                <a href="{{ route('order.index') }}" class="sl-menu-link @yield('orders-active')" >
+                    <div class="sl-menu-item">
+                        <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+                        <span class="menu-item-label">Order</span>
                     </div><!-- menu-item -->
                 </a><!-- sl-menu-link -->
                

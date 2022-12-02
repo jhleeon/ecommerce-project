@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CuponController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\OrderlistController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
@@ -100,6 +101,11 @@ Route::put('admin/cupons/update/{cupon_id}', [CuponController::class, 'update'])
 Route::get('admin/cupons/delete/{cupon_id}', [CuponController::class, 'delete'])->name('cupon.delete');
 Route::get('admin/cupons/inactive/{cupon_id}', [CuponController::class, 'inactive'])->name('cupon.inactive');
 Route::get('admin/cupons/active/{cupon_id}', [CuponController::class, 'active'])->name('cupon.active');
+
+//orders show
+Route::get('admin/orders/index', [OrderlistController::class, 'index'])->name('order.index');
+Route::get('admin/orders/view/{order_id}', [OrderlistController::class, 'orderView'])->name('order.view');
+
 
 
 
