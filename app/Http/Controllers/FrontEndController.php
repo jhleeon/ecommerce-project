@@ -23,4 +23,18 @@ class FrontEndController extends Controller
         $relatedProducts = Product::where('category_id',$category_id)->where('id','!=',$product_id)->latest()->get();  
         return view('frontend.product-details',compact('categories','product','relatedProducts') );
     }
+
+
+    public function shop(){
+        $categories = Category::where('status',1)->latest()->get();
+        $products = Product::where('status',1)->latest()->paginate(2);
+        
+        return view('frontend.shop',compact('categories','products'));
+    }
+
+    public function categoryWiseShop($category_id){
+        $categories = Category::where('status',1)->latest()->get();
+        $products = Product::where('category_id',$category_id)->latest()->paginate(9);
+        return view('frontend.category-shop',compact('products', 'categories'));
+    }
 }

@@ -60,4 +60,18 @@ class OrderController extends Controller
         $categories = Category::where('status',1)->latest()->get();
         return view('frontend.order-success',compact('categories'));
     }
+
+
+    public function orderShow(){
+        $orders = Order::get();
+        return view('frontend.profile.order',compact('orders'));
+        
+    }
+
+    public function orderitems($order_id){
+        $order = Order::findOrFail($order_id);
+        $orderitems = Orderitem::where('order_id',$order_id)->orderBy('id','DESC')->get();
+        $shipping = Shipping::where('order_id',$order_id)->orderBy('id','DESC')->first();
+        return view('frontend.profile.order-item-show',compact('orderitems','shipping','order'));
+    }
 }

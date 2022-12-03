@@ -176,7 +176,7 @@
                             @endif
 
                         </ul>
-                        <a href="{{ route('checkout') }}" class="primary-btn">PROCEED TO CHECKOUT</a>
+                        <a href="{{ route('checkoutpage') }}" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>
             </div>

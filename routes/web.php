@@ -51,8 +51,13 @@ Route::get('/checkout',[CheckoutController::class,'checkout'])->name('checkout')
 //order controller
 Route::post('/place-order',[OrderController::class,'placeOrder'])->name('placeorder');
 Route::get('/place-order/success',[OrderController::class,'orderSuccess'])->name('ordersuccess');
+Route::get('/orders/show',[OrderController::class,'orderShow'])->name('ordershow');
+Route::get('/orders/order-items-show/{order_id}',[OrderController::class,'orderitems'])->name('orderitemshow');
 
 
+//shop page
+Route::get('/shops',[FrontEndController::class,'shop'])->name('shop');
+Route::get('/shops/category/{category_id}',[FrontEndController::class,'categoryWiseShop'])->name('category-wise--shop');
 
 
 // ===============Backend Route===================
