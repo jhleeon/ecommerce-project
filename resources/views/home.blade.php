@@ -35,11 +35,8 @@
                             </form>
                         </div>
                         <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
+                                <h5>01632140038</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -108,7 +105,7 @@
                 <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Profile Details</h5>
+                            <h3 class="card-title">Profile Details</h3>
                             <div class="form-group">
                                 <h4>Name:</h4> <span> {{ Auth::user()->name }} </span>
                                 <div class="form-group">

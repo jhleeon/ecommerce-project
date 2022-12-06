@@ -17,7 +17,7 @@
             </div><!-- sl-page-title -->
 
             <div class="card pd-20 pd-sm-40">
-                <h6 class="card-body-title">Shipping Details</h6>
+                <h4 class="card-body-title text-center mb-3"> <u>Shipping Details</u> </h4>
                 <div class="form-layout">
                     <div class="row mg-b-25">
                         <div class="col-lg-4">
@@ -61,7 +61,7 @@
             <div class="row row-sm mg-t-20">
                 <div class="col-xl-6">
                     <div class="card pd-20 pd-sm-40 form-layout form-layout-4">
-                        <h6 class="card-body-title">Orders</h6>
+                        <h6 class="card-body-title text-center mb-3"><u>Orders</u> </h6>
                        
                         <div class="row mg-t-20">
                             <label class="col-sm-4 form-control-label">Firstname: </label>
@@ -101,7 +101,7 @@
 
                 <div class="col-xl-6 mg-t-25 mg-xl-t-0">
                     <div class="card pd-20 pd-sm-40 form-layout form-layout-5">
-                        <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Order Items</h6>
+                        <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10 text-center mb-3"> <u> Order Items</u></h6>
                         @php $count = 1; @endphp
                         @foreach ($orderitems as $item)
                         

@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\WhislistController;
@@ -58,6 +59,9 @@ Route::get('/orders/order-items-show/{order_id}',[OrderController::class,'orderi
 //shop page
 Route::get('/shops',[FrontEndController::class,'shop'])->name('shop');
 Route::get('/shops/category/{category_id}',[FrontEndController::class,'categoryWiseShop'])->name('category-wise--shop');
+
+//contact page
+Route::get('/contacts',[ContactController::class,'contactInfo'])->name('contact');
 
 
 // ===============Backend Route===================

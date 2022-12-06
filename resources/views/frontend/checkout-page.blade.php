@@ -21,10 +21,6 @@
                     <div class="hero__search">
                         <div class="hero__search__form">
                             <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
                                 <input type="text" placeholder="What do yo u need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
@@ -34,7 +30,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
+                                <h5>01632140038</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -123,12 +119,12 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="checkout__order">
                             <h4>Your Order</h4>
-                            <div class="checkout__order__products">Products <span>Total</span></div>
+                            {{-- <div class="checkout__order__products">Products <span>Total</span></div>
                             <ul>
                                 <li>Vegetable’s Package <span>$75.99</span></li>
                                 <li>Fresh Vegetable <span>$151.99</span></li>
                                 <li>Organic Bananas <span>$53.99</span></li>
-                            </ul>
+                            </ul> --}}
 
                             @if (session()->has('cupon'))
                             <div class="checkout__order__subtotal">Subtotal <span>{{ $subtotal}}</span></div>

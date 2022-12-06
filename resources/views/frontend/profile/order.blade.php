@@ -1,11 +1,14 @@
 @extends('layouts.frontend.frontend-master')
 @section('content')
+
+<div class="container">
     <div class="sl-mainpanel">
         <nav class="breadcrumb sl-breadcrumb">
-            <a class="breadcrumb-item" href="{{ route('admin.home') }}">Dashboard</a>
+            <a class="breadcrumb-item" href="{{ route('home') }}">Dashboard</a>
             <span class="breadcrumb-item active">Order</span>
         </nav>
     </div>
+
 
     <div class="sl-pagebody">
         <div class="row">
@@ -26,7 +29,7 @@
 
 
                     <div class="card pd-20 pd-sm-40">
-                        <h6 class="card-body-title text-center">order List</h6>
+                        <h4 class="card-body-title text-center">Order List</h4>
                         <div class="table-wrapper">
                             <table id="datatable1" class="table table display responsive nowrap">
                                 <thead>

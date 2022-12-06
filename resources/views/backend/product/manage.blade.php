@@ -11,7 +11,7 @@
     <div class="sl-mainpanel">
         <nav class="breadcrumb sl-breadcrumb">
             <a class="breadcrumb-item" href="{{ route('admin.home') }}">Dashboard</a>
-            <a class="breadcrumb-item" href="#">Product</a>
+            <a class="breadcrumb-item" href="{{ route('product.create') }}">Products</a>
             <span class="breadcrumb-item active">Manage</span>
         </nav>
 

@@ -1,12 +1,15 @@
 @extends('layouts.frontend.frontend-master')
 @section('content')
     <!-- ########## START: MAIN PANEL ########## -->
-    <div class="sl-mainpanel">
-        <nav class="breadcrumb sl-breadcrumb">
-            <a class="breadcrumb-item" href="{{ route('admin.home') }}">Dashboard</a>
-            <a class="breadcrumb-item" href="{{ route('order.index') }}">Orders</a>
-            <span class="breadcrumb-item active">Order View</span>
-        </nav>
+    <div class="container">
+        <div class="sl-mainpanel">
+            <nav class="breadcrumb sl-breadcrumb">
+                <a class="breadcrumb-item" href="{{ route('admin.home') }}">Dashboard</a>
+                <a class="breadcrumb-item" href="{{ route('order.index') }}">Orders</a>
+                <span class="breadcrumb-item active">Order View</span>
+            </nav>
+        </div>
+    
 
     <!-- Product Section Begin -->
     <section class="product spad">
@@ -22,7 +25,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <div class="sidebar__item">
+                        {{-- <div class="sidebar__item">
                             <h4>Price</h4>
                             <div class="price-range-wrap">
                                 <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
@@ -38,8 +41,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="sidebar__item sidebar__item__color--option">
+                        </div> --}}
+                        {{-- <div class="sidebar__item sidebar__item__color--option">
                             <h4>Colors</h4>
                             <div class="sidebar__item__color sidebar__item__color--white">
                                 <label for="white">
@@ -77,8 +80,8 @@
                                     <input type="radio" id="green">
                                 </label>
                             </div>
-                        </div>
-                        <div class="sidebar__item">
+                        </div> --}}
+                        {{-- <div class="sidebar__item">
                             <h4>Popular Size</h4>
                             <div class="sidebar__item__size">
                                 <label for="large">
@@ -104,8 +107,8 @@
                                     <input type="radio" id="tiny">
                                 </label>
                             </div>
-                        </div>
-                        <div class="sidebar__item">
+                        </div> --}}
+                        {{-- <div class="sidebar__item">
                             <div class="latest-product__text">
                                 <h4>Latest Products</h4>
                                 <div class="latest-product__slider owl-carousel">
@@ -169,13 +172,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-7">
                     <div class="product__discount">
                         <div class="section-title product__discount__title">
-                            <h2>Sale Off</h2>
+                            <h2>Latest Added</h2>
                         </div>
                         <div class="row">
                             <div class="product__discount__slider owl-carousel">
@@ -215,7 +218,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span>16</span> Products found</h6>
+                                    <h6><span>9</span> Products found</h6>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
@@ -254,5 +257,4 @@
         </div>
     </section>
     <!-- Product Section End -->
-
     @endsection

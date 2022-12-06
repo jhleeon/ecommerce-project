@@ -2,8 +2,8 @@
 @section('content')
     <div class="sl-mainpanel">
         <nav class="breadcrumb sl-breadcrumb">
-            <a class="breadcrumb-item" href="index.html">Category</a>
-            <a class="breadcrumb-item" href="{{ route('category.index') }}">Index</a>
+            <a class="breadcrumb-item" href="{{ route('admin.home')  }}">Dashboard</a>
+            <a class="breadcrumb-item" href="{{ route('category.index') }}">Category</a>
             <span class="breadcrumb-item active">Edit</span>
         </nav>
 
