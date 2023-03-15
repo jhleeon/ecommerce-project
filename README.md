@@ -1,3 +1,3 @@
 ## Admin Credentials
 Admin : admin@gmail.com <br>
-Password: 224466
+Password: 22446688
